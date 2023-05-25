@@ -1,5 +1,7 @@
 package hellojpa;
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 @Entity
 public class Member {
@@ -20,6 +22,9 @@ public class Member {
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date lastModifiedDate;
+
+    private LocalDate localDate;
+    private LocalDateTime localDateTime;
 
     @Lob
     private String description;
