@@ -15,15 +15,14 @@ public class JpaMain {
         tx.begin();
 
         try {
+            Team team = new Team();
+            team.setName("TeamA");
+            em.persist(team);
 
             Member member = new Member();
             member.setName("A");
+            member.setTeam(team);
             em.persist(member);
-
-            Team team = new Team();
-            team.setName("TeamA");
-            team.getMembers().add(member);
-            em.persist(team);
 
             em.flush();
             em.clear();
