@@ -7,7 +7,7 @@
 
 ## 일단 .idea는 제거 ##
 *.idea
-/target/classes/
+target/
 *.iml
 
 # User-specific stuff
