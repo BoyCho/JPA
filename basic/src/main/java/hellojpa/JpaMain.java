@@ -27,9 +27,13 @@ public class JpaMain {
             em.flush();
             em.clear();
 
+            Member m = em.find(Member.class, member.getId());
+            System.out.println("m.getTeam().getClass() = " + m.getTeam().getClass());
+
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
+            e.printStackTrace();
         } finally {
             em.close();
         }
