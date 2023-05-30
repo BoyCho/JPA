@@ -6,9 +6,9 @@
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 ## 일단 .idea는 제거 ##
-.idea
-target/classes
-.iml
+*.idea
+target/classes/
+*.iml
 
 # User-specific stuff
 .idea/**/workspace.xml
@@ -126,7 +126,8 @@ fabric.properties
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
