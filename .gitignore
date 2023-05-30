@@ -7,6 +7,7 @@
 
 ## 일단 .idea는 제거 ##
 .idea
+target/classes
 
 # User-specific stuff
 .idea/**/workspace.xml
