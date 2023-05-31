@@ -16,20 +16,9 @@ public class Member {
     @JoinColumn(name = "TEAM_ID")
     private Team team;
 
-    public Long getId() {
-        return id;
-    }
+    @Embedded
+    private Period workPeriod;
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setTeam(Team team) {
-        this.team = team;
-        team.getMembers().add(this);
-    }
-
-    public Team getTeam() {
-        return team;
-    }
+    @Embedded
+    private Address homeAddress;
 }
