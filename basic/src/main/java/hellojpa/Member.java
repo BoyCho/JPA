@@ -21,4 +21,16 @@ public class Member {
 
     @Embedded
     private Address homeAddress;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Address getHomeAddress() {
+        return homeAddress;
+    }
+
+    public void setHomeAddress(Address homeAddress) {
+        this.homeAddress = homeAddress;
+    }
 }
