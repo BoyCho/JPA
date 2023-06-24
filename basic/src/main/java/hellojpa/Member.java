@@ -45,6 +45,10 @@ public class Member {
         this.name = name;
     }
 
+    public Address getHomeAddress() {
+        return homeAddress;
+    }
+
     public void setHomeAddress(Address homeAddress) {
         this.homeAddress = homeAddress;
     }
