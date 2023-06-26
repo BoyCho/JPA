@@ -18,15 +18,15 @@ public class JpaMain {
 
         try {
             Member member = new Member();
-            member.setName("member1");
-            member.setHomeAddress(new Address("homeCity", "street", "10000"));
+//            member.setName("member1");
+//            member.setHomeAddress(new Address("homeCity", "street", "10000"));
+//
+//            member.getFavoriteFoods().add("피자");
+//            member.getFavoriteFoods().add("치킨");
+//            member.getFavoriteFoods().add("햄버거");
 
-            member.getFavoriteFoods().add("피자");
-            member.getFavoriteFoods().add("치킨");
-            member.getFavoriteFoods().add("햄버거");
-
-            member.getAddressHistory().add(new Address("old1", "street", "10000"));
-            member.getAddressHistory().add(new Address("old2", "street", "10000"));
+            member.getAddressHistory().add(new AddressEntity("old1", "street", "10000"));
+            member.getAddressHistory().add(new AddressEntity("old2", "street", "10000"));
 
             em.persist(member);
 
@@ -34,18 +34,18 @@ public class JpaMain {
             em.clear();
 
             System.out.println("============== START ==============");
-            Member findMember = em.find(Member.class, member.getId());
-
-            // 값 타입 수정 = 불변 유지를 위해 통째로 수정
-            Address address = findMember.getHomeAddress();
-            findMember.setHomeAddress(new Address("newCity", address.getStreet(), address.getZipcode()));
-
-            // 값 타입 Collection 수정 = 마찬가지로 불변 유지를 위한 제거 후 삽입
-            findMember.getFavoriteFoods().remove("피자");
-            findMember.getFavoriteFoods().add("한식");
-
-            findMember.getAddressHistory().remove(new Address("old1", "street", "10000"));
-            findMember.getAddressHistory().add(new Address("newCity1", "street", "10000"));
+//            Member findMember = em.find(Member.class, member.getId());
+//
+//            // 값 타입 수정 = 불변 유지를 위해 통째로 수정
+//            Address address = findMember.getHomeAddress();
+//            findMember.setHomeAddress(new Address("newCity", address.getStreet(), address.getZipcode()));
+//
+//            // 값 타입 Collection 수정 = 마찬가지로 불변 유지를 위한 제거 후 삽입
+//            findMember.getFavoriteFoods().remove("피자");
+//            findMember.getFavoriteFoods().add("한식");
+//
+//            findMember.getAddressHistory().remove(new Address("old1", "street", "10000"));
+//            findMember.getAddressHistory().add(new Address("newCity1", "street", "10000"));
 
             tx.commit();
         } catch (Exception e) {
