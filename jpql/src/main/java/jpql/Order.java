@@ -3,10 +3,7 @@ package jpql;
 import javax.persistence.*;
 
 @Entity
-<<<<<<< HEAD
 @Table(name = "ORDERS")
-=======
->>>>>>> origin/main
 public class Order {
 
     @Id @GeneratedValue
