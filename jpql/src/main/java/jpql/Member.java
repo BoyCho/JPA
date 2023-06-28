@@ -16,6 +16,16 @@ public class Member {
     @JoinColumn(name = "TEAM_ID")
     private Team team;
 
+    public Member(String username, int age, Team team) {
+        this.username = username;
+        this.age = age;
+        this.team = team;
+        team.getMembers().add(this);
+    }
+
+    public Member() {
+    }
+
     @OneToMany(mappedBy = "member")
     private List<Order> orders = new ArrayList<>();
 
