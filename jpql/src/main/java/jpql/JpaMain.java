@@ -29,9 +29,9 @@ public class JpaMain {
             em.flush();
             em.clear();
 
-            String query = "select t.members from Team t";
-            Collection result = em.createQuery(query, Collection.class)
-                    .getResultList();
+            String query = "select mL.username from Team t left join t.members mL";
+            String result = em.createQuery(query, String.class)
+                    .getResultList().toString();
 
             System.out.println("result = " + result);
 
