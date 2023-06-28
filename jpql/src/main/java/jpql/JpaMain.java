@@ -34,14 +34,17 @@ public class JpaMain {
             em.flush();
             em.clear();
 
-            String query = "select m from Member m join fetch m.team";
-            List<Member> result = em.createQuery(query, Member.class)
+            String query = "select t from Team t join fetch t.members";
+            List<Team> result = em.createQuery(query, Team.class)
                     .getResultList();
 
             System.out.println("\n---------------------------\n");
 
-            for (Member member : result) {
-                System.out.println("member.getUsername() = " + member.getUsername() + ", " + member.getTeam().getName());
+            for (Team team : result) {
+                System.out.println("team.getName() = " + team.getName() + "|members = " + team.getMembers().size());
+                for (Member member : team.getMembers()) {
+                    System.out.println("-> member = " + member);
+                }
             }
 
             tx.commit();
