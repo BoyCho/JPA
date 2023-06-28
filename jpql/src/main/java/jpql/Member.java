@@ -53,6 +53,10 @@ public class Member {
         this.age = age;
     }
 
+    public Team getTeam() {
+        return team;
+    }
+
     @Override
     public String toString() {
         return "Member{" +
