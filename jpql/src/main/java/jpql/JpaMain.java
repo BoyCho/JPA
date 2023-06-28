@@ -34,20 +34,14 @@ public class JpaMain {
             em.flush();
             em.clear();
 
-            String query = "select m from Member m";
+            String query = "select m from Member m join fetch m.team";
             List<Member> result = em.createQuery(query, Member.class)
                     .getResultList();
 
             System.out.println("\n---------------------------\n");
 
-            // 현재는 team은 프록시 객체임
             for (Member member : result) {
                 System.out.println("member.getUsername() = " + member.getUsername() + ", " + member.getTeam().getName());
-                // 회원1, 팀A(SQL)
-                // 회원2, 팀A(1차 캐시)
-                // 회원3, 팀B(SQL)
-                // => 총 쿼리가 3번 전송됨
-                // => 회원 N명 -> 최대 N + 1발생
             }
 
             tx.commit();
