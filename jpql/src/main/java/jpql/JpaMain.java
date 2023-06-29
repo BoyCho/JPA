@@ -31,16 +31,13 @@ public class JpaMain {
             Member member3 = new Member("회원3", 30, teamB);
             em.persist(member3);
 
-            em.flush();
-            em.clear();
+            int resultCount = em.createQuery("update Member m set m.age = 20")
+                    .executeUpdate();
+            // Flush로 엔티티 DB에 적용 후 벌크 연산(executeUpdate()) 실행됨
 
-            List<Member> resultList = em.createNamedQuery("Member.findByUsername", Member.class)
-                    .setParameter("username", "회원1")
-                    .getResultList();
+            System.out.println("resultCount = " + resultCount);
 
-            for (Member member : resultList) {
-                System.out.println("member = " + member);
-            }
+            System.out.println("member1.getAge() = " + member1.getAge());
 
             tx.commit();
         } catch (Exception e) {
